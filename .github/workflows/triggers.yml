@@ -1,0 +1,23 @@
+name: Workflow con múltiples triggers
+
+# Define los eventos que activarán el workflow
+on:
+  push:
+    branches:
+      - main  # Se activa cuando hay un push a la rama main
+  pull_request:
+    branches:
+      - main  # Se activa cuando hay un pull request hacia la rama main
+  workflow_dispatch:  # Permite ejecutar el workflow manualmente desde la interfaz de GitHub
+
+# Define los jobs que se ejecutarán cuando el workflow sea activado
+jobs:
+  build:
+    runs-on: ubuntu-latest  # Especifica el sistema operativo en el que se ejecutará el job
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3  # Acción para descargar el código del repositorio
+
+      - name: Run a script
+        run: "echo \"El workflow se ha ejecutado debido a: ${{ github.event_name }}\""
