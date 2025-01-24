@@ -1,4 +1,5 @@
 name: Hola Mundo en Java
+run-name: Hola Mundo en Java
 
 on:
   push:
