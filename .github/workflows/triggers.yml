@@ -1,4 +1,5 @@
 name: Workflow con múltiples triggers
+run-name: Workflow con múltiples triggers
 
 # Define los eventos que activarán el workflow
 on:
