@@ -1,7 +1,11 @@
 name: Workflow con variables
 run-name: Ejemplo usando variables
 
-on: workflow_dispatch
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
 env:
   DIA_DE_SEMANA: Lunes
 jobs:
