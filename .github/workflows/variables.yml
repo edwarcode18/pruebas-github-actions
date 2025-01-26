@@ -1,5 +1,5 @@
 name: Workflow con variables
-run-name: Ejemplo usando una variable configurada en GitHub Actions
+run-name: Ejemplo usando variables
 
 on: workflow_dispatch
 env:
