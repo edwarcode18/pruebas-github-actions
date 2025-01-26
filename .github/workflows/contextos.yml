@@ -1,0 +1,24 @@
+name: Workflow con contextos
+run-name: Ejemplo con contextos
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Usar un contexto
+        run: |
+          echo "El nombre del repositorio es: ${{ github.repository }}"
+
+      - name: Usar varios contextos
+        run: |
+          echo "El actor que ejecutó el workflow es: ${{ github.actor }}"
+          echo "Fecha actual: ${{ github.event.head_commit.timestamp || 'No disponible' }}"

@@ -1,0 +1,31 @@
+name: Workflow con expresiones
+run-name: Workflow con expresiones
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  expressions_demo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Usar una expresión condicional
+        if: ${{ github.event_name == 'push' }}
+        run: echo "Este workflow se ejecutó debido a un push en la rama main."
+
+      - name: Operaciones matemáticas
+        run: |
+          echo "Suma: $((1 + 2))"
+          echo "Multiplicación: $((3 * 4))"
+
+      - name: Expresión con funciones
+        run: |
+          echo "El repositorio es: ${{ github.repository }}"
+          echo "El actor que ejecutó el workflow es: ${{ github.actor }}"
+          echo "Fecha actual: ${{ github.event.head_commit.timestamp || 'No disponible' }}"
