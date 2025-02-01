@@ -17,7 +17,7 @@ jobs:
 
       # Configurar Java
       - name: Set up JDK 17
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v4
         with:
           distribution: 'temurin' # Especifica la distribución del JDK
           java-version: '17'
